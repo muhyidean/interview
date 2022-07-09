@@ -1,9 +1,7 @@
 package com.dean.interview.entity;
 
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.fasterxml.jackson.annotation.JsonUnwrapped;
-import lombok.Data;
+import com.dean.interview.entity.EventUserPK.EventUser;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 

@@ -7,10 +7,7 @@ import com.dean.interview.repo.EventRepo;
 import com.dean.interview.service.EventService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,8 +23,8 @@ public class EventController extends CrudController<EventService, EventDto> {
         this.eventService = eventService;
     }
 
-    @GetMapping("/search/{name}")
-    public List<EventDto> getEvents(@PathVariable("name") String name){
+    @GetMapping("/search")
+    public List<EventDto> getEvents(@RequestParam String name){
         var events = eventService.getEvents(name);
         return events;
     }

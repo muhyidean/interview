@@ -3,7 +3,6 @@ package com.dean.interview.service.impl;
 import com.dean.interview.dto.EventDto;
 import com.dean.interview.dto.UserDto;
 import com.dean.interview.entity.Event;
-import com.dean.interview.entity.EventUser;
 import com.dean.interview.entity.User;
 import com.dean.interview.repo.UserRepo;
 import com.dean.interview.service.UserService;

@@ -1,7 +1,5 @@
-package com.dean.interview.entity;
+package com.dean.interview.entity.EventUserPK;
 
-
-import lombok.Data;
 
 import javax.persistence.Embeddable;
 import java.io.Serializable;

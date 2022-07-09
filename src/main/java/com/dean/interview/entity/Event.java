@@ -1,8 +1,7 @@
 package com.dean.interview.entity;
 
 
-import com.fasterxml.jackson.annotation.*;
-import lombok.Data;
+import com.dean.interview.entity.EventUserPK.EventUser;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;

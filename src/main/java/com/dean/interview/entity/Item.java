@@ -1,6 +1,7 @@
 package com.dean.interview.entity;
 
 
+import com.dean.interview.entity.ItemTxPK.ItemTx;
 import lombok.Data;
 
 import javax.persistence.*;

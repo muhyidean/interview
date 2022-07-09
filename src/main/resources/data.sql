@@ -16,9 +16,11 @@ INSERT INTO event (id,end_date,name,start_date,shopping_list_id) VALUES (4,'2022
 
 
 INSERT INTO shopping_list_items (items_id, shopping_list_id) VALUES (1,1);
-INSERT INTO shopping_list_items (items_id, shopping_list_id) VALUES (1,2);
 INSERT INTO shopping_list_items (items_id, shopping_list_id) VALUES (2,1);
+INSERT INTO shopping_list_items (items_id, shopping_list_id) VALUES (1,2);
 INSERT INTO shopping_list_items (items_id, shopping_list_id) VALUES (3,2);
+INSERT INTO shopping_list_items (items_id, shopping_list_id) VALUES (2,3);
+INSERT INTO shopping_list_items (items_id, shopping_list_id) VALUES (3,3);
 
 INSERT INTO users (id,email,fullname) VALUES (1,'dean@gc.com','Dean');
 INSERT INTO users (id,email,fullname) VALUES (2,'john@gc.com','John');
@@ -36,5 +38,5 @@ INSERT INTO transaction (id,user_id) VALUES (4,2);
 
 INSERT INTO item_tx (bought, transaction_id, item_id ) VALUES (true, 1,1);
 INSERT INTO item_tx (bought, transaction_id, item_id ) VALUES (true, 2,2);
-INSERT INTO item_tx (bought, transaction_id, item_id ) VALUES (true, 3,3);
+INSERT INTO item_tx (bought, transaction_id, item_id ) VALUES (false, 3,3);
 INSERT INTO item_tx (bought, transaction_id, item_id ) VALUES (true, 4,2);

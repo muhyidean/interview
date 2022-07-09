@@ -1,15 +1,12 @@
-package com.dean.interview.entity;
+package com.dean.interview.entity.EventUserPK;
 
 import com.dean.interview.dto.EventDto;
-import com.fasterxml.jackson.annotation.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
+import com.dean.interview.entity.Event;
+import com.dean.interview.entity.User;
 import lombok.NoArgsConstructor;
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @NoArgsConstructor

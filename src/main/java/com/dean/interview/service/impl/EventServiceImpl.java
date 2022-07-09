@@ -2,9 +2,15 @@ package com.dean.interview.service.impl;
 
 
 import com.dean.interview.dto.EventDto;
+import com.dean.interview.dto.ShoppingListDto;
+import com.dean.interview.entity.Event;
+import com.dean.interview.entity.Item;
+import com.dean.interview.entity.ShoppingList;
+import com.dean.interview.entity.User;
 import com.dean.interview.repo.EventRepo;
 import com.dean.interview.service.EventService;
 import lombok.AllArgsConstructor;
+import org.hibernate.Hibernate;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -28,10 +34,23 @@ public class EventServiceImpl implements EventService<EventDto> {
     public List<EventDto> findAll() {
         var data = eventRepo.findAll();
         var result = new ArrayList<EventDto>();
-        data.forEach((item)->{
-            result.add(modelMapper.map(item,EventDto.class));
-        });
 
+        List<Event> events = new ArrayList<>();
+        data.forEach(events::add);
+
+        for (int i = 0; i < events.size() ; i++) {
+            EventDto eventDto = modelMapper.map(events.get(i),EventDto.class);
+            var items = events.get(i).getShoppingList().getItems();
+            for (int j = 0; j < items.size() ; j++) {
+                var tx = items.get(j).getTransactions();
+                for (int k = 0; k < tx.size() ; k++) {
+                    tx.get(k).isBought();
+                    eventDto.getShoppingList().getItems().get(j).setBought(tx.get(k).isBought());
+                }
+            }
+            result.add(eventDto);
+        }
+        int a = 5;
         return result;
     }
 
