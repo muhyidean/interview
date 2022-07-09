@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.PathVariable;
 
 
 import java.util.ArrayList;
@@ -22,6 +23,7 @@ public class EventServiceImpl implements EventService<EventDto> {
         private final ModelMapper modelMapper;
 
 
+
     @Override
     public List<EventDto> findAll() {
         var data = eventRepo.findAll();
@@ -32,4 +34,16 @@ public class EventServiceImpl implements EventService<EventDto> {
 
         return result;
     }
+
+    public List<EventDto> getEvents(String name){
+        var events = eventRepo.findEventBy(name);
+        var result = new ArrayList<EventDto>();
+        events.forEach((item)->{
+            result.add(modelMapper.map(item,EventDto.class));
+        });
+        return result;
+    }
+
+
+
 }
